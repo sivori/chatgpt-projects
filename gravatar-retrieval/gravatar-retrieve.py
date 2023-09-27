@@ -8,8 +8,8 @@ def get_gravatar_url(email):
     email_bytes = email.lower().encode('utf-8')
     # Generate the MD5 hash of the email
     digest = hashlib.md5(email_bytes).hexdigest()
-    # Return the Gravatar URL
-    return f'https://www.gravatar.com/avatar/{digest}'
+    # Return the Gravatar URL with the highest resolution
+    return f'https://www.gravatar.com/avatar/{digest}?s=2048'
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
